@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Box, Typography, Card, Button, CardContent } from "@mui/material";
 import { Link } from "react-router-dom";
 
-import cat1 from '../Assets/images/electonics_category.webp';
-import cat2 from '../Assets/images/jewelery_category.webp';
+import cat1 from '../Assets/images/electronics_catogory.jpg';
+import cat2 from '../Assets/images/jewellery_category_img.jpg';
 import cat3 from '../Assets/images/mens_clothing.webp';
 import cat4 from '../Assets/images/womens_category_img.jpg';
 
