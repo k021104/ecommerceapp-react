@@ -1,58 +1,5 @@
-// import React, { useContext } from "react";
-// import { WishlistContext } from "../Context/WishlistContext";
-// import { Box, Typography, Button } from "@mui/material";
-
-// export default function Wishlist() {
-
-//   const { wishlist, removeFromWishlist } = useContext(WishlistContext);
-
-//   return (
-//     <Box sx={{ p: 4 }}>
-//       <Typography variant="h4" sx={{ fontWeight: 700, mb: 4, textAlign: "center" }}>
-//         Your Wishlist ❤️
-//       </Typography>
-
-//       {wishlist.length === 0 ? (
-//         <Typography sx={{ textAlign: "center", color: "gray" }}>
-//           Wishlist is Empty 😔
-//         </Typography>
-//       ) : (
-//         wishlist.map(item => (
-//           <Box
-//             key={item.id}
-//             sx={{
-//               display: "flex",
-//               alignItems: "center",
-//               justifyContent: "space-between",
-//               p: 2,
-//               mb: 2,
-//               borderRadius: "10px",
-//               boxShadow: "0 5px 15px rgba(0,0,0,.1)"
-//             }}
-//           >
-//             <img src={item.image} height={70} alt="" />
-//             <Typography sx={{ width: "50%" }}>
-//               {item.title}
-//             </Typography>
-
-//             <Typography sx={{ fontWeight: 700 }}>
-//               ${item.price}
-//             </Typography>
-
-//             <Button color="error" variant="contained"
-//               onClick={() => removeFromWishlist(item.id)}>
-//               Remove
-//             </Button>
-//           </Box>
-//         ))
-//       )}
-//     </Box>
-//   );
-// }
-
-
 import React, { useContext } from "react";
-import { Box, Typography, Card, CardMedia, CardContent, Button, Grid } from "@mui/material";
+import { Box, Typography, Card, CardMedia, CardContent, Button } from "@mui/material";
 import { WishlistContext } from "../Context/WishlistContext";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Link } from "react-router-dom";
