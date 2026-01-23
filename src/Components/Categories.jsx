@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 import cat1 from '../Assets/images/electronics_catogory.jpg';
 import cat2 from '../Assets/images/jewellery_category_img.jpg';
-import cat3 from '../Assets/images/mens_clothing.webp';
-import cat4 from '../Assets/images/womens_category_img.jpg';
+import cat3 from '../Assets/images/mens_clothing.jpg';
+import cat4 from '../Assets/images/womens_clothing.jpeg';
 
 export default function Categories() {
 
