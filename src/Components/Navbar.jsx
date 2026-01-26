@@ -88,7 +88,7 @@ export default function Navbar() {
                 transition: ".3s",
               }}
             >
-              MyStore
+              Mystore
             </Typography>
 
             {/* Search Desktop */}
