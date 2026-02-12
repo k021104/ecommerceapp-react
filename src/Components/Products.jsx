@@ -292,7 +292,6 @@ export default function Products() {
                         boxShadow: "0 12px 30px rgba(236,72,153,0.4)",
                       },
                     }}
-                    onClick={() => addToWishlist(item)}
                   >
                     <Box
                       sx={{

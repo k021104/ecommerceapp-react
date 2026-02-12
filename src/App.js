@@ -18,7 +18,8 @@ import Register from "./Pages/Register";
 import ProtectedRoute from './Pages/ProtectedRoute';
 import ForgotPassword from "./Pages/ForgotPassword";
 import Checkout from "./Pages/Checkout";
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
 
@@ -28,41 +29,43 @@ function App() {
 
   return (
     <>
+      <ToastContainer position="top-right" autoClose={2000} />
+
       <BrowserRouter>
         <Navbar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/product/:id" element={<ProductDetails />} />
-            <Route path="/categories" element={<Categories />} />
-            <Route path="/category/:name" element={<CategoryProducts />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/wishlist" element={
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/product/:id" element={<ProductDetails />} />
+          <Route path="/categories" element={<Categories />} />
+          <Route path="/category/:name" element={<CategoryProducts />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/wishlist" element={
+            <ProtectedRoute>
+              <Wishlist />
+            </ProtectedRoute>
+          } />
+
+          <Route path="/cart" element={
+            <ProtectedRoute>
+              <Cart />
+            </ProtectedRoute>
+          } />
+
+          <Route
+            path="/checkout"
+            element={
               <ProtectedRoute>
-                <Wishlist />
+                <Checkout />
               </ProtectedRoute>
-            } />
+            }
+          />
 
-            <Route path="/cart" element={
-              <ProtectedRoute>
-                <Cart />
-              </ProtectedRoute>
-            } />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
 
-            <Route
-              path="/checkout"
-              element={
-                <ProtectedRoute>
-                  <Checkout />
-                </ProtectedRoute>
-              }
-            />
-
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/forgot-password" element={<ForgotPassword />} />
-
-          </Routes>
+        </Routes>
         <Footer />
       </BrowserRouter>
     </>
