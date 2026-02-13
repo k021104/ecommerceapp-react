@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from "react";
+import { toast } from "react-toastify";
 
 export const AuthContext = createContext();
 
@@ -25,15 +26,15 @@ export default function AuthProvider({ children }) {
         );
 
         if (foundUser) {
-            const dummyToken = Math.random().toString(36).substr(2); 
+            const dummyToken = Math.random().toString(36).substr(2);
             setToken(dummyToken);
             setCurrentUser(foundUser);
             localStorage.setItem("token", dummyToken);
             localStorage.setItem("currentUser", JSON.stringify(foundUser));
-            alert("Login Successful 🎉");
+            toast.success("Login Successful");
             return true;
         } else {
-            alert("Invalid Username or Password ❌");
+            toast.error("Invalid Username and Password");
             return false;
         }
     };
@@ -46,14 +47,14 @@ export default function AuthProvider({ children }) {
         // Check if user already exists
         const exist = users.find((u) => u.username === username || u.email === email);
         if (exist) {
-            alert("User already exists ❌");
+            toast.error("User already exists");
             return false;
         }
 
         const newUser = { email, username, password };
         users.push(newUser);
         localStorage.setItem("users", JSON.stringify(users));
-        alert("Registered Successfully 🎉");
+        toast.success("Registered Successfully");
         return true;
     };
 
@@ -63,7 +64,7 @@ export default function AuthProvider({ children }) {
         setCurrentUser(null);
         localStorage.removeItem("token");
         localStorage.removeItem("currentUser");
-        alert("Logged Out Successfully 👋");
+        toast.error("Logged Out Successfully");
     };
 
     return (
